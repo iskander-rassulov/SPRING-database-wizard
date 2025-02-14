@@ -1,0 +1,76 @@
+/* Подключаем Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
+
+/* Применяем шрифт ко всей странице */
+* {
+    font-family: 'Source Sans 3', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Sidebar on the left */
+.sidebar {
+    position: fixed; /* Фиксируем в левой части экрана */
+    height: 100vh; /* На всю высоту экрана */
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    background-color: #f3f3f3;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+    overflow: hidden; /* Запрещает расширение меню */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.db-info h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Ограничиваем максимальную ширину списка таблиц */
+.tables-list {
+    list-style: none;
+    margin-bottom: 2rem;
+    max-width: 100%; /* Не даёт контенту раздвигать контейнер */
+    padding: 0;
+    margin: 0;
+}
+
+/* Стили для названий таблиц, предотвращение переноса */
+.tables-list li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    white-space: nowrap; /* Предотвращает перенос на новую строку */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Добавляет "..." если текст не влезает */
+    max-width: 100%;
+}
+
+/* При наведении цвет меняется */
+.tables-list li:hover {
+    background-color: #ddd;
+}
+
+/* "Switch Database" button */
+.switch-db {
+    padding: 0.75rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.switch-db:hover {
+    background-color: #555;
+}

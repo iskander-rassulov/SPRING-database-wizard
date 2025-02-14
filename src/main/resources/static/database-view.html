@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Database View</title>
-  <link rel="stylesheet" href="database-styles.css">
-
+  <link rel="stylesheet" href="sidebar-styles.css">
+  <link rel="stylesheet" href="table-styles.css">
   <!-- Font: Source Sans 3 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,22 +17,20 @@
     <div class="db-info">
       <h2>Database Name</h2>
     </div>
-    <ul class="tables-list">
-      <!--
-          Список таблиц. Элементы <li> создаются динамически
-          или заранее, а затем к ним будет назначаться обработчик клика
-      -->
-    </ul>
+    <ul class="tables-list"></ul>
     <button class="switch-db">Switch Database</button>
   </nav>
+
 
   <!-- Main content area -->
   <main class="main-content">
     <h1>Database Overview</h1>
-
-    <!-- Контейнер, в который будем динамически вставлять HTML-таблицу с данными -->
-    <div class="table-container"></div>
+    <h2 id="table-title">Select a table</h2>
+    <div class="table-wrapper">
+      <div class="table-container"></div>
+    </div>
   </main>
+
 </div>
 
 <script src="database-scripts.js"></script>

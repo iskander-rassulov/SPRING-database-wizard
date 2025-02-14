@@ -1,0 +1,60 @@
+/* Подключаем Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
+
+/* Main content area */
+.main-content {
+    margin-left: 250px; /* Учитываем ширину зафиксированного sidebar */
+    padding: 20px;
+    height: 100vh; /* На всю высоту экрана */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Контейнер для таблицы с прокруткой */
+.table-wrapper {
+    flex-grow: 1; /* Растягивается на доступное пространство */
+    overflow-x: auto; /* Горизонтальный скролл */
+    overflow-y: auto; /* Вертикальный скролл */
+    position: relative;
+}
+
+/* Фиксируем scrollbar внизу */
+.table-wrapper::-webkit-scrollbar {
+    height: 10px; /* Высота скроллбара */
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #bbb; /* Цвет ползунка */
+    border-radius: 5px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f3f3f3; /* Цвет фона */
+}
+
+/* Table container */
+.table-container {
+    margin-top: 2rem;
+    overflow-x: auto; /* если таблица широкая */
+}
+
+/* HTML-таблица */
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.table-container th,
+.table-container td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #f3f3f3;
+    font-weight: 600;
+}

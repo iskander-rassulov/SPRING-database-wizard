@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Запросим список таблиц
     async function fetchTables() {
-        // Формируем объект с данными, аналогичный ConnectionRequest
         const requestData = { host, port: Number(port), dbName, username, password };
 
         try {
@@ -29,15 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 const tableNames = await response.json();
-                // Очищаем меню и добавляем полученные таблицы
-                tablesListElement.innerHTML = '';
+                tablesListElement.innerHTML = ''; // Очищаем перед добавлением новых элементов
+
                 tableNames.forEach(name => {
                     const li = document.createElement('li');
-                    li.textContent = name;
-                    li.addEventListener('click', () => {
-
-                        // Здесь можно реализовать логику просмотра таблицы
-                    });
+                    li.textContent = name.trim(); // Убираем лишние пробелы
+                    li.title = name; // Показывает полное имя при наведении
                     tablesListElement.appendChild(li);
                 });
             } else {
@@ -48,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Network error: ${error.message}`);
         }
     }
+
 
     fetchTables();
 
