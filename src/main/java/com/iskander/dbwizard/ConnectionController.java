@@ -9,6 +9,8 @@ import jakarta.validation.constraints.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -33,6 +35,33 @@ public class ConnectionController {
                     .body("Ошибка подключения: " + e.getMessage());
         }
     }
+
+    @PostMapping("/tables")
+    public ResponseEntity<?> listTables(@Valid @RequestBody ConnectionRequest request) {
+        String url = String.format("jdbc:postgresql://%s:%d/%s",
+                request.getHost(),
+                request.getPort(),
+                request.getDbName());
+
+        try (Connection conn = DriverManager.getConnection(url, request.getUsername(), request.getPassword())) {
+            // Запрашиваем список таблиц из information_schema
+            String sql = "SELECT table_name FROM information_schema.tables " +
+                    "WHERE table_schema = 'public' " +
+                    "ORDER BY table_name;";
+            try (var stmt = conn.createStatement();
+                 var rs = stmt.executeQuery(sql)) {
+
+                List<String> tableNames = new ArrayList<>();
+                while (rs.next()) {
+                    tableNames.add(rs.getString("table_name"));
+                }
+                return ResponseEntity.ok(tableNames);
+            }
+        } catch (SQLException e) {
+            return ResponseEntity.badRequest().body("Error fetching tables: " + e.getMessage());
+        }
+    }
+
 
     // DTO для приёма данных
     public static class ConnectionRequest {

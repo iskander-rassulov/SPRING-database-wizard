@@ -21,9 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                // Если ответ OK, перенаправляем на новую страницу
+                // Сохраняем все параметры
+                localStorage.setItem('host', host);
+                localStorage.setItem('port', port);
+                localStorage.setItem('dbName', dbName);
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+
+                // Переход к обзору базы
                 window.location.href = 'database-view.html';
-            } else {
+            }
+            else {
                 // Иначе показываем сообщение об ошибке
                 const errorMessage = await response.text();
                 alert(`Error: ${errorMessage}`);
