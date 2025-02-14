@@ -58,6 +58,7 @@ body {
     width: 100%;
     cursor: pointer;
     font-size: 1rem;
+    margin-top: 2rem;
 }
 
 .switch-db:hover {
@@ -68,4 +69,29 @@ body {
 .main-content {
     flex: 1;
     padding: 2rem;
+}
+
+/* Table container */
+.table-container {
+    margin-top: 2rem;
+    overflow-x: auto; /* если таблица широкая */
+}
+
+/* HTML-таблица */
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.table-container th,
+.table-container td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #f3f3f3;
+    font-weight: 600;
 }

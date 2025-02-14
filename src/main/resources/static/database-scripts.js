@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const li = document.createElement('li');
                     li.textContent = name;
                     li.addEventListener('click', () => {
-                        alert(`You selected: ${name}`);
+
                         // Здесь можно реализовать логику просмотра таблицы
                     });
                     tablesListElement.appendChild(li);

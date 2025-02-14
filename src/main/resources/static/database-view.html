@@ -18,9 +18,10 @@
       <h2>Database Name</h2>
     </div>
     <ul class="tables-list">
-      <li>Table 1</li>
-      <li>Table 2</li>
-      <li>Table 3</li>
+      <!--
+          Список таблиц. Элементы <li> создаются динамически
+          или заранее, а затем к ним будет назначаться обработчик клика
+      -->
     </ul>
     <button class="switch-db">Switch Database</button>
   </nav>
@@ -28,10 +29,13 @@
   <!-- Main content area -->
   <main class="main-content">
     <h1>Database Overview</h1>
-    <p>This area could display table details and other information.</p>
+
+    <!-- Контейнер, в который будем динамически вставлять HTML-таблицу с данными -->
+    <div class="table-container"></div>
   </main>
 </div>
 
 <script src="database-scripts.js"></script>
+<script src="table-scripts.js"></script>
 </body>
 </html>
