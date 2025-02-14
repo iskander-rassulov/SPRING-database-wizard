@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dbInfoElement.textContent = dbName;
     }
 
-    // Добавляем обработчик клика по таблицам
+    // Обработчик клика по таблицам
     tablesListElement.addEventListener('click', (event) => {
         if (event.target && event.target.tagName === 'LI') {
             const selectedTable = event.target.textContent.trim();
@@ -58,6 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Определяем первичный ключ
+    function getPrimaryKey(row) {
+        const possibleKeys = ['id', 'profile_id', 'user_id']; // Возможные первичные ключи
+        for (let key of possibleKeys) {
+            if (row[key] !== undefined) return row[key]; // Если ключ найден, возвращаем его
+        }
+        return Object.values(row)[0]; // Если нет стандартного PK, берем первое значение
+    }
+
     // Функция рендера HTML-таблицы
     function renderTable(dataRows) {
         if (!dataRows || dataRows.length === 0) {
@@ -70,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const thead = document.createElement('thead');
         const tbody = document.createElement('tbody');
 
+        // Создаем заголовки таблицы
         const trHead = document.createElement('tr');
         columns.forEach(col => {
             const th = document.createElement('th');
@@ -78,19 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         thead.appendChild(trHead);
 
+        // Заполняем тело таблицы
         dataRows.forEach(row => {
             const tr = document.createElement('tr');
+            tr.dataset.primaryKey = getPrimaryKey(row); // Сохраняем первичный ключ
+
             columns.forEach(col => {
                 const td = document.createElement('td');
                 td.textContent = row[col] !== null ? row[col] : '';
                 tr.appendChild(td);
             });
+
             tbody.appendChild(tr);
         });
 
         table.appendChild(thead);
         table.appendChild(tbody);
-
         tableContainer.innerHTML = '';
         tableContainer.appendChild(table);
     }
