@@ -5,6 +5,7 @@
   <title>Database View</title>
   <link rel="stylesheet" href="sidebar-styles.css">
   <link rel="stylesheet" href="table-styles.css">
+  <link rel="stylesheet" href="menu-styles.css">
   <!-- Font: Source Sans 3 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +27,19 @@
   <main class="main-content">
     <h1>Database Overview</h1>
     <h2 id="table-title">Select a table</h2>
+
+    <div class="menu">
+      <div class="menu-buttons">
+        <button id="add-button">Add</button>
+        <button id="delete-button">Delete</button>
+        <button id="fill-button">Fill</button>
+        <button id="export-button">Export</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+      </div>
+    </div>
+
     <div class="table-wrapper">
       <div class="table-container"></div>
     </div>
