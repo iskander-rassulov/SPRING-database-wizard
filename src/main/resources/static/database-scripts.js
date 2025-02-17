@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchDbButton = document.querySelector('.switch-db');
     const dbInfoElement = document.querySelector('.db-info h2');
     const tablesListElement = document.querySelector('.tables-list');
+    const addButton = document.getElementById('add-button');
+    const modal = document.getElementById('add-modal');
+    const closeModalButton = document.querySelector('.close-modal');
 
     // Считываем параметры подключения из localStorage
     const host = localStorage.getItem('host');
@@ -52,5 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
     switchDbButton.addEventListener('click', () => {
         // Возвращаемся на форму, например, index.html
         window.location.href = 'index.html';
+    });
+
+    // Открываем модальное окно при нажатии на кнопку "Add"
+    addButton.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    // Закрываем модальное окно при нажатии на крестик
+    closeModalButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Закрываем модальное окно при клике вне его области
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 });

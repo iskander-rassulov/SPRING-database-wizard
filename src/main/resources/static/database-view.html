@@ -42,10 +42,25 @@
     <div class="table-instruction">
       To change the values in the table, simply click on a cell!
     </div>
+
+    <!-- Внутри <body> после основного контента -->
+    <div id="add-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Add New Row</h2>
+        <form id="add-form">
+          <div id="form-fields"></div>
+          <button type="submit" class="modal-button">Add Row</button>
+        </form>
+      </div>
+    </div>
+
     <div class="table-wrapper">
       <div class="table-container"></div>
     </div>
   </main>
+
+
 
 </div>
 
@@ -53,5 +68,6 @@
 <script src="table-scripts.js"></script>
 <script src="table-edit-scripts.js"></script>
 <script src="search-scripts.js"></script>
+<script src="add-row-scripts.js"></script>
 </body>
 </html>
