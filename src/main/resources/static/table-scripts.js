@@ -26,6 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // table-scripts.js
+    tablesListElement.addEventListener('click', (event) => {
+        if (event.target && event.target.tagName === 'LI') {
+            const selectedTable = event.target.textContent.trim();
+            localStorage.setItem('currentTable', selectedTable); // Сохраняем выбранную таблицу
+            tableTitle.textContent = selectedTable;
+            fetchTableData(selectedTable);
+        }
+    });
+
     // Функция запроса данных таблицы
     async function fetchTableData(tableName) {
         tableContainer.innerHTML = '<p>Loading table data...</p>';
@@ -113,3 +123,4 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'index.html';
     });
 });
+

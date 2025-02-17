@@ -58,3 +58,13 @@
     background-color: #f3f3f3;
     font-weight: 600;
 }
+
+.table-instruction {
+    font-family: 'Source Sans 3', sans-serif; /* Используем тот же шрифт, что и в других элементах */
+    color: #666; /* Серый цвет текста */
+    font-size: 0.9rem; /* Размер шрифта */
+    margin-top: 0.5rem; /* Отступ сверху */
+    margin-bottom: 1rem; /* Отступ снизу */
+    font-style: italic; /* Курсивный текст */
+    text-align: left; /* Выравнивание по центру */
+}
