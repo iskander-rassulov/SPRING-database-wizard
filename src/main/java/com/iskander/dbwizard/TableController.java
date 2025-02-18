@@ -359,4 +359,34 @@ public class TableController {
             return false;
         }
     }
+
+    @PostMapping("/table-columns")
+    public ResponseEntity<?> getTableColumns(@RequestBody TableRequest request) {
+        String url = String.format("jdbc:postgresql://%s:%d/%s",
+                request.getHost(),
+                request.getPort(),
+                request.getDbName());
+
+        try (Connection conn = DriverManager.getConnection(url, request.getUsername(), request.getPassword())) {
+            String tableName = request.getTableName();
+            String sql = "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = ?";
+
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, tableName);
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    List<Map<String, String>> columns = new ArrayList<>();
+                    while (rs.next()) {
+                        Map<String, String> column = new HashMap<>();
+                        column.put("name", rs.getString("column_name"));
+                        column.put("dataType", rs.getString("data_type"));
+                        columns.add(column);
+                    }
+                    return ResponseEntity.ok(columns);
+                }
+            }
+        } catch (SQLException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Database error: " + e.getMessage());
+        }
+    }
 }
