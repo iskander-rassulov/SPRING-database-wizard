@@ -23,8 +23,6 @@ Database Wizard is a tool for managing database tables through an intuitive web 
 
    Select a table to view and edit its data. Use the buttons to add, delete and export data.
 
-## Screenshot
-
 ## Screenshots
 
 | Interface Overview | Module Window |
@@ -37,6 +35,9 @@ Database Wizard is a tool for managing database tables through an intuitive web 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Java, Spring Boot
 - **Database:** PostgreSQL
+
+## Video
+https://www.youtube.com/watch?v=D8zTbJWPgSg
 
 ## License
 
