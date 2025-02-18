@@ -29,9 +29,7 @@ Database Wizard is a tool for managing database tables through an intuitive web 
 
 | Interface Overview | Table View |
 |--------------------|------------|
-| ![Database Wizard Interface](![dbw1](https://github.com/user-attachments/assets/3b7ded3f-a71f-425c-a1be-a67f95310b15)
-) | ![Add function](![dbw2](https://github.com/user-attachments/assets/5ecffcf5-6309-4d99-844a-25c6c9340e5e)
-) |
+| ![Database Wizard Interface](https://github.com/user-attachments/assets/3b7ded3f-a71f-425c-a1be-a67f95310b15) | ![Add function](https://github.com/user-attachments/assets/5ecffcf5-6309-4d99-844a-25c6c9340e5e)
 
 
 ## Technologies
