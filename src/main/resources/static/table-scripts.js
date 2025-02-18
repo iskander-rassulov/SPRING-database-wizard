@@ -36,6 +36,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    tablesListElement.addEventListener('click', (event) => {
+        if (event.target && event.target.tagName === 'LI') {
+            const selectedTable = event.target.textContent.trim();
+            tableTitle.textContent = selectedTable;
+            localStorage.setItem('currentTable', selectedTable);
+            fetchTableData(selectedTable);
+
+            // Скрываем кнопку "Cancel deletion" и удаляем колонку "Delete"
+            document.getElementById('cancel-delete-button').style.display = 'none';
+            document.getElementById('delete-button').style.display = 'inline-block';
+
+            const table = document.querySelector('.table-container table');
+            if (table) {
+                const headers = table.querySelectorAll('th');
+                if (headers.length > 0 && headers[headers.length - 1].textContent === 'Delete') {
+                    headers[headers.length - 1].remove();
+                }
+
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    if (row.cells.length > 0 && row.cells[row.cells.length - 1].querySelector('.delete-row-button')) {
+                        row.cells[row.cells.length - 1].remove();
+                    }
+                });
+            }
+        }
+    });
+
+
     // Функция запроса данных таблицы
     async function fetchTableData(tableName) {
         tableContainer.innerHTML = '<p>Loading table data...</p>';

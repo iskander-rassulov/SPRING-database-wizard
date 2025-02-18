@@ -2,10 +2,10 @@ document.getElementById('delete-button').addEventListener('click', function() {
     document.getElementById('delete-button').style.display = 'none';
     document.getElementById('cancel-delete-button').style.display = 'inline-block';
 
-    // Добавляем новую колонку
+    // Добавляем новую колонку с названием "Delete" и кнопками
     const table = document.querySelector('.table-container table');
     if (table) {
-        const newColumnName = 'New Column';
+        const newColumnName = 'Delete';
         const headers = table.querySelectorAll('th');
         const newHeader = document.createElement('th');
         newHeader.textContent = newColumnName;
@@ -14,18 +14,23 @@ document.getElementById('delete-button').addEventListener('click', function() {
         const rows = table.querySelectorAll('tbody tr');
         rows.forEach(row => {
             const newCell = document.createElement('td');
-            newCell.textContent = '';
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete Row';
+            deleteButton.classList.add('delete-row-button');
+            deleteButton.addEventListener('click', () => {
+                row.remove();
+            });
+            newCell.appendChild(deleteButton);
             row.appendChild(newCell);
         });
     }
 });
 
-
 document.getElementById('cancel-delete-button').addEventListener('click', function() {
     document.getElementById('cancel-delete-button').style.display = 'none';
     document.getElementById('delete-button').style.display = 'inline-block';
 
-    // Удаляем новую колонку
+    // Удаляем колонку "Delete"
     const table = document.querySelector('.table-container table');
     if (table) {
         const headers = table.querySelectorAll('th');
