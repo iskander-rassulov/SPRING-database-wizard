@@ -1,6 +1,6 @@
 # Database Wizard
 
-Database Wizard is a tool for managing database tables through an intuitive web interface. It allows you to view, add, delete, and export table data.
+Database Wizard is a tool for managing database tables through an intuitive web interface. It allows you to view, add, delete and export table data.
 
 ## Key Features
 
@@ -21,7 +21,7 @@ Database Wizard is a tool for managing database tables through an intuitive web 
 
 2. **Manage Tables:**
 
-   Select a table to view and edit its data. Use the buttons to add, delete, and export data.
+   Select a table to view and edit its data. Use the buttons to add, delete and export data.
 
 ## Screenshot
 
